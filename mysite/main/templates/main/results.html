@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Description</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+#codebox {
+  padding: 15px;
+  font-family: Courier, sans-serif;
+  font-size: 1em;
+	line-height: 1.3;
+  color: #fff;
+  background-color: #2c3e50;
+  -webkit-border-radius: 0px 0px 6px 6px;
+  -moz-border-radius: 0px 0px 6px 6px;
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 10px;
+}
+
+code {
+	font-family: Courier, sans-serif;
+  font-size: 1em;
+	line-height: 1.3;
+}
+
+.codeheader {
+  padding: 5px 5px 5px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  color: #fff;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 6px 0px 0px;
+	user-select: none;
+	-ms-user-select: none; /* IE10+, Edge */
+	-moz-user-select: none; /* Mozilla */
+	-webkit-user-select: none; /* Safari */
+}
+
+#codeheader_html {
+  background-color: #3D9970;
+}
+#codeheader_css {
+  background-color: #e67e22;
+}
+#codeheader_php {
+  background-color: #85144b;
+}
+#codeheader_js {
+  background-color: #0074D9;
+}
+  </style>
+
+  
+
+</head>
+<body>
+
+
+  <div style="width: 100%;height: 20%; text-align: center;">
+    <h1>Results</h1>
+    <br>
+    <h3>Out of <strong>{{totalfiles}}</strong> resume's, <strong>{{ relevantfiles }}</strong> are recommended</h3>
+  </div>
+  <div style="width: 100%; text-align: left;">
+
+      {% for filename, filerel, filejson in file_data %}
+      
+          <div class="codeheader" id="codeheader_html">{{ filename }} - Relevance: {{ filerel }}</div>
+          <div id="codebox" style="overflow: auto; word-wrap: break-word;">
+              <pre><code data-language="html">
+              <p>
+                  {{ filejson }}
+              </p>
+              </code></pre>
+          </div>
+      
+      {% endfor %}
+      </div>
+
+  </div>
+
+
+</body>
+</html>
